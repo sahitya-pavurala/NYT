@@ -1,4 +1,10 @@
-How might your solution change if we wanted to create a findstars service
+1) To run the solution, Download the data file and the findstars.py and type from the terminal
+
+    gunzip hygdata_v3.csv.gz | python findstars.py hygdata_v3.csv 5
+
+
+
+2) How might your solution change if we wanted to create a findstars service
 that can respond quickly to requests for distance from an arbitrary point
 with no memory restrictions, and we want to query it to return the nearest
 K stars from arbitrary point X=(x,y,z) ?
