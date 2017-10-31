@@ -20,15 +20,24 @@ The data needs to be dumped somewhere. A database seems to be a good choice. Pro
 Security levels are high and can be manipulated according to the needs but need to keep in mind when using such a service. Inefficient queries adds cost on the server. A database record is not easily readable like xml or json. So, additional implementation on the DB is an overhead
 
 ## Design
+![Alt text](initialsystemdesign.png?raw=true "Optional Title")
+
 
 ### Failures May Happen Here
 Due to the following reasons:
+
 1. Not resilient. When the system is overlaoded with 10x, 100x, 1000x, the collection service gets overloaded and the consumer faces a problem and pings the producer and the system collapses.
 2. Not Scalabile. During increased loads, the server cannot withstand the high requests
 3. Availability. When the clients access data on the query service the data is not available
+
+
 ## Final Design
+
 Addresses the above failures
 
 Implementing a message bus between the collection service and the query service that can buffer the messages for scalable, higher volume capacity. With the loosely coupled architecture it scales better and resolves the availability of data even when the producer or consumer is not available.
 
 On higher volumes, with some providers, we can horizontally or vertically scale the clusters when using cloud services and not manipulate the servers that support this architecture.
+
+![Alt text](systemdesign.png?raw=true "Optional Title")
+
